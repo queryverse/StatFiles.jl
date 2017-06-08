@@ -1,5 +1,12 @@
-using StatFiles
+using FileIO
+using IterableTables
+using DataFrames
 using Base.Test
 
-# write your own tests here
-@test 1 == 2
+@testset "StatFiles" begin
+
+df = load(joinpath(Pkg.dir("ReadStat"), "test", "types.dta")) |> DataFrame
+
+@test size(df) == (3,6)
+
+end
