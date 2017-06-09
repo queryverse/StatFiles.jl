@@ -39,7 +39,7 @@ build_script:
 # Need to convert from shallow to complete for Pkg.clone to work
   - IF EXIST .git\shallow (git fetch --unshallow)
   - C:\projects\julia\bin\julia -e "versioninfo();
-      Pkg.clone(pwd(), \"StatFiles\"); Pkg.build(\"StatFiles\")"
+      Pkg.clone(\"https://github.com/davidanthoff/FileIO.jl.git\"); Pkg.checkout(\"FileIO\", \"next\"); Pkg.clone(\"https://github.com/davidanthoff/ReadStat.jl.git\"); Pkg.checkout(\"ReadStat\", \"fix-0.6-bug\"); Pkg.clone(pwd(), \"StatFiles\"); Pkg.build(\"StatFiles\")"
 
 test_script:
   - C:\projects\julia\bin\julia -e "Pkg.test(\"StatFiles\")"

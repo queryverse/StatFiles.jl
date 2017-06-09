@@ -24,9 +24,8 @@ git:
 #before_script: # homebrew for mac
 #  - if [ $TRAVIS_OS_NAME = osx ]; then brew install gcc; fi
 
-## uncomment the following lines to override the default test script
-#script:
-#  - julia -e 'Pkg.clone(pwd()); Pkg.build("StatFiles"); Pkg.test("StatFiles"; coverage=true)'
+script:
+  - julia -e 'Pkg.clone("https://github.com/davidanthoff/FileIO.jl.git"); Pkg.checkout("FileIO", "next"); Pkg.clone("https://github.com/davidanthoff/ReadStat.jl.git"); Pkg.checkout("DataStreams", "fix-0.6-bug"); Pkg.clone(pwd()); Pkg.build("StatFiles"); Pkg.test("StatFiles"; coverage=true)'
 after_success:
   # push coverage results to Codecov
   - julia -e 'cd(Pkg.dir("StatFiles")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
