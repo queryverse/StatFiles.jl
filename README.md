@@ -8,5 +8,5 @@
 
 ## Overview
 
-This package provides load and save support for Stata, SPSS, and SAS files
+This package provides load support for Stata, SPSS, and SAS files
 under the [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) package.
