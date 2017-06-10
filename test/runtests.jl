@@ -5,8 +5,20 @@ using Base.Test
 
 @testset "StatFiles" begin
 
-df = load(joinpath(Pkg.dir("ReadStat"), "test", "types.dta")) |> DataFrame
+df = load("types.dta") |> DataFrame
 
 @test size(df) == (3,6)
+
+df = load("types.sas7bdat") |> DataFrame
+
+@test size(df) == (3,6)
+
+df = load("types.sav") |> DataFrame
+
+@test size(df) == (3,6)
+
+# df = load("types.por") |> DataFrame
+
+# @test size(df) == (3,6)
 
 end
