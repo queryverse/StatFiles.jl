@@ -21,4 +21,8 @@ df = load("types.sav") |> DataFrame
 
 # @test size(df) == (3,6)
 
+statfile = load("types.dta")
+
+@test isiterable(statfile) == true
+
 end
