@@ -1,6 +1,6 @@
 module StatFiles
 
-using ReadStat, IterableTables, DataValues, DataFrames
+using ReadStat, TableTraits, DataValues, DataFrames
 import FileIO
 
 struct StatFile
@@ -19,10 +19,10 @@ function load(f::FileIO.File{FileIO.format"SAS"})
     return StatFile(f.filename)
 end
 
-IterableTables.isiterable(x::StatFile) = true
-IterableTables.isiterabletable(x::StatFile) = true
+TableTraits.isiterable(x::StatFile) = true
+TableTraits.isiterabletable(x::StatFile) = true
 
-function IterableTables.getiterator(file::StatFile)
+function TableTraits.getiterator(file::StatFile)
     filename, extension = splitext(file.filename)
     if extension==".dta"
         dt = read_dta(file.filename)
