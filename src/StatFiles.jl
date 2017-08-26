@@ -2,6 +2,7 @@ module StatFiles
 
 using ReadStat, TableTraits, DataValues, DataFrames
 import FileIO
+import IterableTables
 
 struct StatFile
     filename::String
