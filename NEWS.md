@@ -1,3 +1,6 @@
+# StatFiles.jl v0.1.1
+* Load IterableTables.jl again from package
+
 # StatFiles.jl v0.1.0
 * Move to TableTraits.jl
 
