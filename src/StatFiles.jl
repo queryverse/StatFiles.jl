@@ -1,6 +1,7 @@
 module StatFiles
 
-using ReadStat, TableTraits, DataValues, DataFrames
+using ReadStat, IteratorInterfaceExtensions, TableTraits, TableTraitsUtils
+using DataValues
 import FileIO
 import IterableTables
 
@@ -20,24 +21,26 @@ function load(f::FileIO.File{FileIO.format"SAS"})
     return StatFile(f.filename)
 end
 
-TableTraits.isiterable(x::StatFile) = true
+IteratorInterfaceExtensions.isiterable(x::StatFile) = true
 TableTraits.isiterabletable(x::StatFile) = true
 
-function TableTraits.getiterator(file::StatFile)
+function IteratorInterfaceExtensions.getiterator(file::StatFile)
     filename, extension = splitext(file.filename)
     if extension==".dta"
-        dt = read_dta(file.filename)
+        data, header = read_dta(file.filename)
     elseif extension==".por"
-        dt = read_por(file.filename)
+        data, header = read_por(file.filename)
     elseif extension==".sav"
-        dt = read_sav(file.filename)
+        data, header = read_sav(file.filename)
     elseif extension==".sas7bdat"
-        dt = read_sas7bdat(file.filename)
+        data, header = read_sas7bdat(file.filename)
     else
         error("Unknown file type.")
     end
 
-    it = getiterator(dt)
+    println(typeof(data[1]))
+
+    it = TableTraitsUtils.create_tableiterator(data, header)
 
     return it
 end
