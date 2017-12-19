@@ -1,3 +1,6 @@
+# StatFiles.jl v0.2.0
+* Update to ReadStat.jl 0.2.0
+
 # StatFiles.jl v0.1.1
 * Load IterableTables.jl again from package
 
