@@ -1,7 +1,7 @@
 module StatFiles
 
 using ReadStat, IteratorInterfaceExtensions, TableTraits, TableTraitsUtils
-using DataValues
+using DataValues, SASLib
 import FileIO
 import IterableTables
 
@@ -33,7 +33,10 @@ function IteratorInterfaceExtensions.getiterator(file::StatFile)
     elseif extension==".sav"
         data, header = read_sav(file.filename)
     elseif extension==".sas7bdat"
-        data, header = read_sas7bdat(file.filename)
+        x = readsas(file.filename)
+        header = x[:column_symbols]
+        data = [x[:data][i] for i in header]
+        # data, header = read_sas7bdat(file.filename)
     else
         error("Unknown file type.")
     end
