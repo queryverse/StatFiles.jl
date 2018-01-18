@@ -27,20 +27,18 @@ TableTraits.isiterabletable(x::StatFile) = true
 function IteratorInterfaceExtensions.getiterator(file::StatFile)
     filename, extension = splitext(file.filename)
     if extension==".dta"
-        data, header = read_dta(file.filename)
+        df = read_dta(file.filename)
     elseif extension==".por"
-        data, header = read_por(file.filename)
+        df = read_por(file.filename)
     elseif extension==".sav"
-        data, header = read_sav(file.filename)
+        df = read_sav(file.filename)
     elseif extension==".sas7bdat"
-        data, header = read_sas7bdat(file.filename)
+        df = read_sas7bdat(file.filename)
     else
         error("Unknown file type.")
     end
 
-    println(typeof(data[1]))
-
-    it = TableTraitsUtils.create_tableiterator(data, header)
+    it = TableTraitsUtils.create_tableiterator(df.data, df.headers)
 
     return it
 end
