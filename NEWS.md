@@ -1,3 +1,6 @@
+# StatFiles.jl v0.3.0
+* Update to ReadStat.jl 0.3.0
+
 # StatFiles.jl v0.2.0
 * Update to ReadStat.jl 0.2.0
 
