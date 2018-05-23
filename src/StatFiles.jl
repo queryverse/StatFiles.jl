@@ -1,23 +1,24 @@
 module StatFiles
 
 using ReadStat, IteratorInterfaceExtensions, TableTraits, TableTraitsUtils
-using DataValues
-import FileIO
+using DataValues, FileIO
 import IterableTables
+
+export load
 
 struct StatFile
     filename::String
 end
 
-function load(f::FileIO.File{FileIO.format"Stata"})
+function fileio_load(f::FileIO.File{FileIO.format"Stata"})
     return StatFile(f.filename)
 end
 
-function load(f::FileIO.File{FileIO.format"SPSS"})
+function fileio_load(f::FileIO.File{FileIO.format"SPSS"})
     return StatFile(f.filename)
 end
 
-function load(f::FileIO.File{FileIO.format"SAS"})
+function fileio_load(f::FileIO.File{FileIO.format"SAS"})
     return StatFile(f.filename)
 end
 

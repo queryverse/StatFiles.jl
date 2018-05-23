@@ -22,7 +22,7 @@ Use Pkg.add("StatFiles") in Julia to install StatFiles and its dependencies.
 To read a Stata, SPSS, or SAS file into a ``DataFrame``, use the following julia code:
 
 ````julia
-using FileIO, StatFiles, DataFrames
+using StatFiles, DataFrames
 
 df = DataFrame(load("data.dta"))
 ````
@@ -30,7 +30,7 @@ df = DataFrame(load("data.dta"))
 The call to ``load`` returns a ``struct`` that is an [IterableTable.jl](https://github.com/davidanthoff/IterableTables.jl), so it can be passed to any function that can handle iterable tables, i.e. all the sinks in [IterableTable.jl](https://github.com/davidanthoff/IterableTables.jl). Here are some examples of materializing a Stata, SPSS, or SAS file into data structures that are not a ``DataFrame``:
 
 ````julia
-using FileIO, StatFiles, DataTables, IndexedTables, TimeSeries, Temporal, Gadfly
+using StatFiles, DataTables, IndexedTables, TimeSeries, Temporal, Gadfly
 
 # Load into a DataTable
 dt = DataTable(load("data.dta"))
@@ -53,7 +53,7 @@ plot(load("data.dta"), x=:a, y=:b, Geom.line)
 ``load`` also support the pipe syntax. For example, to load a Stata, SPSS, or SAS file into a ``DataFrame``, one can use the following code:
 
 ````julia
-using FileIO, StatFiles, DataFrame
+using StatFiles, DataFrame
 
 df = load("data.dta") |> DataFrame
 ````

@@ -1,4 +1,3 @@
-using FileIO
 using StatFiles
 using IteratorInterfaceExtensions
 using TableTraits
