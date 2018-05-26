@@ -1,7 +1,7 @@
 module StatFiles
 
 using ReadStat, IteratorInterfaceExtensions, TableTraits, TableTraitsUtils
-using DataValues, FileIO
+using DataValues, FileIO, TableShowUtils
 import IterableTables
 
 export load
@@ -9,6 +9,26 @@ export load
 struct StatFile
     filename::String
 end
+
+function Base.show(io::IO, source::StatFile)
+    file_ext = lowercase(splitext(source.filename)[2])
+    filetype = if file_ext==".dta"
+        "STATA file"
+    elseif file_ext==".sav"
+        "SPSS file"
+    elseif file_ext==".sas7bdat"
+        "SAS file"
+    else
+        "file"
+    end
+    TableShowUtils.printtable(io, getiterator(source), filetype)
+end
+
+function Base.show(io::IO, ::MIME"text/html", source::StatFile)
+    TableShowUtils.printHTMLtable(io, getiterator(source))
+end
+
+Base.Multimedia.mimewritable(::MIME"text/html", source::StatFile) = true
 
 function fileio_load(f::FileIO.File{FileIO.format"Stata"})
     return StatFile(f.filename)
