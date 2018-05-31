@@ -13,7 +13,7 @@ under the [FileIO.jl](https://github.com/JuliaIO/FileIO.jl) package.
 
 ## Installation
 
-Use Pkg.add("StatFiles") in Julia to install StatFiles and its dependencies.
+Use ``Pkg.add("StatFiles")`` in Julia to install StatFiles and its dependencies.
 
 ## Usage
 
