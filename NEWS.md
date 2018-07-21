@@ -1,3 +1,6 @@
+# StatFiles.jl v0.6.0
+* Drop julia 0.6 support, add julia 0.7 support
+
 # StatFiles.jl v0.5.0
 * Add show method
 
