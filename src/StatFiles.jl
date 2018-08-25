@@ -28,7 +28,7 @@ function Base.show(io::IO, ::MIME"text/html", source::StatFile)
     TableShowUtils.printHTMLtable(io, getiterator(source))
 end
 
-Base.Multimedia.mimewritable(::MIME"text/html", source::StatFile) = true
+Base.Multimedia.showable(::MIME"text/html", source::StatFile) = true
 
 function fileio_load(f::FileIO.File{FileIO.format"Stata"})
     return StatFile(f.filename)
