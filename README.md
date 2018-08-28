@@ -1,10 +1,10 @@
 # StatFiles
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
-[![Build Status](https://travis-ci.org/davidanthoff/StatFiles.jl.svg?branch=master)](https://travis-ci.org/davidanthoff/StatFiles.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/816985qre56lkgpf/branch/master?svg=true)](https://ci.appveyor.com/project/davidanthoff/statfiles-jl/branch/master)
+[![Build Status](https://travis-ci.org/queryverse/StatFiles.jl.svg?branch=master)](https://travis-ci.org/queryverse/StatFiles.jl)
+[![Build status](https://ci.appveyor.com/api/projects/status/lx7qmion1a8dggls/branch/master?svg=true)](https://ci.appveyor.com/project/queryverse/statfiles-jl/branch/master)
 [![StatFiles](http://pkg.julialang.org/badges/StatFiles_0.6.svg)](http://pkg.julialang.org/?pkg=StatFiles)
-[![codecov.io](http://codecov.io/github/davidanthoff/StatFiles.jl/coverage.svg?branch=master)](http://codecov.io/github/davidanthoff/StatFiles.jl?branch=master)
+[![codecov.io](http://codecov.io/github/queryverse/StatFiles.jl/coverage.svg?branch=master)](http://codecov.io/github/queryverse/StatFiles.jl?branch=master)
 
 ## Overview
 
@@ -27,7 +27,7 @@ using StatFiles, DataFrames
 df = DataFrame(load("data.dta"))
 ````
 
-The call to ``load`` returns a ``struct`` that is an [IterableTable.jl](https://github.com/davidanthoff/IterableTables.jl), so it can be passed to any function that can handle iterable tables, i.e. all the sinks in [IterableTable.jl](https://github.com/davidanthoff/IterableTables.jl). Here are some examples of materializing a Stata, SPSS, or SAS file into data structures that are not a ``DataFrame``:
+The call to ``load`` returns a ``struct`` that is an [IterableTable.jl](https://github.com/queryverse/IterableTables.jl), so it can be passed to any function that can handle iterable tables, i.e. all the sinks in [IterableTable.jl](https://github.com/queryverse/IterableTables.jl). Here are some examples of materializing a Stata, SPSS, or SAS file into data structures that are not a ``DataFrame``:
 
 ````julia
 using StatFiles, DataTables, IndexedTables, TimeSeries, Temporal, Gadfly
@@ -58,4 +58,4 @@ using StatFiles, DataFrame
 df = load("data.dta") |> DataFrame
 ````
 
-The pipe syntax is especially useful when combining it with [Query.jl](https://github.com/davidanthoff/Query.jl) queries, for example one can easily load a Stata, SPSS, or SAS file, pipe it into a query, then pipe it to the ``save`` function to store the results in a new file.
+The pipe syntax is especially useful when combining it with [Query.jl](https://github.com/queryverse/Query.jl) queries, for example one can easily load a Stata, SPSS, or SAS file, pipe it into a query, then pipe it to the ``save`` function to store the results in a new file.
