@@ -1,3 +1,6 @@
+# StatFiles.jl v0.6.1
+* Fix remaining julia 0.7/1.0 issues
+
 # StatFiles.jl v0.6.0
 * Drop julia 0.6 support, add julia 0.7 support
 
