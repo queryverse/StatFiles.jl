@@ -4,7 +4,7 @@ using ReadStat, IteratorInterfaceExtensions, TableTraits, TableTraitsUtils
 using DataValues, FileIO, TableShowUtils
 import IterableTables
 
-export load
+export load, File, @format_str
 
 struct StatFile
     filename::String
