@@ -1,3 +1,6 @@
+# StatFiles.jl v0.7.0
+* Export FileIO.File and FileIO.@format_str
+
 # StatFiles.jl v0.6.1
 * Fix remaining julia 0.7/1.0 issues
 
