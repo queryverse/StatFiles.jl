@@ -30,6 +30,12 @@ end
 
 Base.Multimedia.showable(::MIME"text/html", source::StatFile) = true
 
+function Base.show(io::IO, ::MIME"application/vnd.dataresource+json", source::StatFile)
+    TableShowUtils.printdataresource(io, getiterator(source))
+end
+
+Base.Multimedia.showable(::MIME"application/vnd.dataresource+json", source::StatFile) = true
+
 function fileio_load(f::FileIO.File{FileIO.format"Stata"})
     return StatFile(f.filename)
 end
