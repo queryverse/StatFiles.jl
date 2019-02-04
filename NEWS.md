@@ -1,3 +1,6 @@
+# StatFiles.jl v0.8.0
+* Add support for "application/vnd.dataresource+json" MIME type
+
 # StatFiles.jl v0.7.0
 * Export FileIO.File and FileIO.@format_str
 
