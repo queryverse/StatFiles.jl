@@ -4,7 +4,7 @@ using ReadStat, IteratorInterfaceExtensions, TableTraits, TableTraitsUtils
 using DataValues, FileIO, TableShowUtils
 import IterableTables
 
-export load, File, @format_str
+export load, save, File, @format_str
 
 struct StatFile
     filename::String
@@ -46,6 +46,18 @@ end
 
 function fileio_load(f::FileIO.File{FileIO.format"SAS"})
     return StatFile(f.filename)
+end
+
+function fileio_save(f::FileIO.File{FileIO.format"Stata"}, data; file_label="")
+    write_dta(f.filename, data, file_label=file_label)
+end
+
+function fileio_save(f::FileIO.File{FileIO.format"SPSS"}, data; file_label="")
+    write_sav(f.filename, data, file_label=file_label)
+end
+
+function fileio_save(f::FileIO.File{FileIO.format"SAS"}, data; file_label="")
+    write_sas7bdat(f.filename, data, file_label=file_label)
 end
 
 IteratorInterfaceExtensions.isiterable(x::StatFile) = true
