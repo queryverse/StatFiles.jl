@@ -3,7 +3,6 @@
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Build Status](https://travis-ci.org/queryverse/StatFiles.jl.svg?branch=master)](https://travis-ci.org/queryverse/StatFiles.jl)
 [![Build status](https://ci.appveyor.com/api/projects/status/lx7qmion1a8dggls/branch/master?svg=true)](https://ci.appveyor.com/project/queryverse/statfiles-jl/branch/master)
-[![StatFiles](http://pkg.julialang.org/badges/StatFiles_0.6.svg)](http://pkg.julialang.org/?pkg=StatFiles)
 [![codecov.io](http://codecov.io/github/queryverse/StatFiles.jl/coverage.svg?branch=master)](http://codecov.io/github/queryverse/StatFiles.jl?branch=master)
 
 ## Overview
