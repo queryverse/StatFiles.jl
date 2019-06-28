@@ -52,7 +52,7 @@ plot(load("data.dta"), x=:a, y=:b, Geom.line)
 ``load`` also support the pipe syntax. For example, to load a Stata, SPSS, or SAS file into a ``DataFrame``, one can use the following code:
 
 ````julia
-using StatFiles, DataFrame
+using StatFiles, DataFrames
 
 df = load("data.dta") |> DataFrame
 ````
