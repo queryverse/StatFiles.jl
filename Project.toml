@@ -1,6 +1,6 @@
 name = "StatFiles"
 uuid = "1463e38c-9381-5320-bcd4-4134955f093a"
-version = "1.0.0-DEV"
+version = "0.8.1-DEV"
 
 [deps]
 DataValues = "e7dc6d0d-1eca-5fa6-8ad6-5aecde8b7ea5"
