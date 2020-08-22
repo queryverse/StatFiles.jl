@@ -1,14 +1,14 @@
 using Documenter, StatFiles
 
 makedocs(
-	modules = [StatFiles],
-	sitename = "StatFiles.jl",
+	modules=[StatFiles],
+	sitename="StatFiles.jl",
 	analytics="UA-132838790-1",
-	pages = [
+	pages=[
         "Introduction" => "index.md"
     ]
 )
 
 deploydocs(
-    repo = "github.com/queryverse/StatFiles.jl.git"
+    repo="github.com/queryverse/StatFiles.jl.git"
 )
