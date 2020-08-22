@@ -12,11 +12,11 @@ end
 
 function Base.show(io::IO, source::StatFile)
     file_ext = lowercase(splitext(source.filename)[2])
-    filetype = if file_ext==".dta"
+    filetype = if file_ext == ".dta"
         "STATA file"
-    elseif file_ext==".sav"
+    elseif file_ext == ".sav"
         "SPSS file"
-    elseif file_ext==".sas7bdat"
+    elseif file_ext == ".sas7bdat"
         "SAS file"
     else
         "file"
@@ -53,13 +53,13 @@ TableTraits.isiterabletable(x::StatFile) = true
 
 function IteratorInterfaceExtensions.getiterator(file::StatFile)
     filename, extension = splitext(file.filename)
-    if extension==".dta"
+    if extension == ".dta"
         df = read_dta(file.filename)
-    elseif extension==".por"
+    elseif extension == ".por"
         df = read_por(file.filename)
-    elseif extension==".sav"
+    elseif extension == ".sav"
         df = read_sav(file.filename)
-    elseif extension==".sas7bdat"
+    elseif extension == ".sas7bdat"
         df = read_sas7bdat(file.filename)
     else
         error("Unknown file type.")
