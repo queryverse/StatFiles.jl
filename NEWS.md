@@ -1,6 +1,8 @@
 # StatFiles.jl v1.0.0
-* Drop julia 0.7 support
-* Migrate to Project.toml
+* Require julia 1.10
+* Require ReadStat 1.2, which pins ReadStat_jll to 1.1.9
+* Migrate to the TestItems test framework
+* Widen DataValues and TableShowUtils compat bounds
 
 # StatFiles.jl v0.8.0
 * Add support for "application/vnd.dataresource+json" MIME type
